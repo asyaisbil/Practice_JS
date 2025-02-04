@@ -144,10 +144,83 @@ const result = array1.splice(5,5);
 console.log(result);
 
 
+//String olarak gelen bir cümlenin tüm harflerini büyük harfe dönüştürüp geri dönen convertUpperCase isimli bir fonksiyon yaz. 
+
+function convertUpperCase(cumle) {
+    return cumle.toUpperCase();
+}
+
+console.log(convertUpperCase("Yabancı Damat dizisini çok severim."));
+
+/*
+Bir takımda "Emre", "Melisa", "Fatih", "Dilara" isimlerinde 4 kişi var. Verilecek bir görevi kimse üstlenmediği için aralarından biri rastgele seçilecek.
+
+- Bu takımdan rastgele bir kişiyi seçip gorevli isimli değişkende sakla.
+- Bu kişiyi konsola yazdır.
+*/
+
+const takim = ["Emre","Melisa","Fatih","Dilara"];
+let gorevliIndex = Math.floor(Math.random() * 4);
+let gorevli = takim[gorevliIndex];
+console.log(gorevli);
 
 
+/*hasUpperCase isimli bir fonksiyon yaz. Argüman olarak gelen bir kelimede büyük harf varsa true, yoksa false dönsün. 
+
+- İpucu: hepsi küçük harf ise küçük harfe dönüşmüş haline eşittir.*/
+
+function hasUpperCase(arg) {
+    if (arg === arg.toLowerCase) {
+        return false;
+    } else {
+        return true;
+    }
+}
 
 
+//Aşağıdaki name isimli değişkenin 5. karakterini büyükharfe dönüştürüp konsola basın.
+const name = "Melisa yılmaz";
+
+console.log(name[4].toUpperCase());
 
 
+/*
+sayilar isimli array'deki son 3 elemanı çıkartan tek satırlık bir kod yaz.
 
+- .pop() kullanma.
+- Konsola yazdır, kontrol et.
+*/ 
+
+const sayilar = [1,2,3,4,5];
+console.log(sayilar.splice(2,3));
+
+
+/*
+Aşağıdaki sample isimli değişkendeki rastgele bir harfi sadece metod kullarak 3 adımda console'a yazdır.
+
+- Rastgele bir indeks oluştur. 
+- sample metninden karakteri alıp karakter isimli değişkende sakla.
+- Konsola yazdır.
+*/
+
+const sample = "Hello World";
+const randomIndex = Math.floor(Math.random() * sample.length);
+console.log(randomIndex);
+karakter = sample[randomIndex];
+console.log(karakter);
+
+
+//50 ile 75 arasında(50 ve 75 dahil) rastgele bir sayı oluştur ve bunu konsola yazdır.
+
+const rastgele = Math.floor(Math.random() * 26 + 50);
+console.log(rastgele);
+
+
+// Aşağıdaki arabaMarkalari isimli array'in son 2 ve ilk 2 elemanını listeden çıkart. - .splice() kullanma. 
+
+const arabaMarkalari = ["Lexus", "Chery", "VW", "TOGG", "Mercedes", "Volvo", "Dacia", "Citroen"];
+arabaMarkalari.shift();
+arabaMarkalari.shift();
+arabaMarkalari.pop();
+arabaMarkalari.pop();
+console.log(arabaMarkalari);
