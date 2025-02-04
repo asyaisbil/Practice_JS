@@ -224,3 +224,69 @@ arabaMarkalari.shift();
 arabaMarkalari.pop();
 arabaMarkalari.pop();
 console.log(arabaMarkalari);
+
+
+
+// Bir yarışma sonucunda siralamaya girenler siralama isimli bir array'de listelenmişler. İlk 3'e girenler için sosyal medyada tebrik mesajı yayınlanacak. Bu mesajı oluşturacak ve konsol'a basacak kodu yazın. - Sadece array metodu kullanarak ilk 3'e girenleri al. ilkUc isimli değişkende sakla. - Bu 3 öğrencinin adını virgül ile ayırarak ogrencilerStr isimli değişkende string'e dönüştür. (örn: Ayşe Bulut, Emre Fırat, Melisa Marcan) - "Değerli öğrencilerimiz Ayşe Bulut, Emre Fırat, Melisa Marcan'ı başarılarından dolayı kutluyoruz." metnini oluştur ve tebrikMesaji isimli değişkende sakla. - Konsola yazdır.
+const siralama = ["Ayşe Bulut", "Emre Fırat", "Melisa Marcan", "Erdem Güntay", "Gamze Baltaş"];
+
+const ilkUc = siralama.splice(0,3);
+const ogrencilerStr = ilkUc.join(", ");
+const tebrikMesaji = `Değerli öğrencilerimiz ${ogrencilerStr}'ı başarılarından dolayı kutluyoruz.`
+console.log(tebrikMesaji);
+
+
+// formatSentence isimli bir fonksiyon yaz. Argüman olarak aldığı cümle'nin ilk harfini büyütüp geri dönsün.
+
+function formatSentence(arg) {
+    return arg[0].toUpperCase() + arg.slice(1);
+} 
+
+
+
+//Bir uygulamada fonksiyon isimlendirirken camelCase kullanılmamış. yanlis isimlendirme değişkeninde saklı bu ismi, dogruIsimlendirme değişkeninde sadece string metodları kullanarak düzelt. Konsola yazdır.
+const yanlis = "sinavikazananlar";
+
+const dogruIsimlendirme = yanlis.slice(0,6) + yanlis[6].toUpperCase() + yanlis.slice(7);
+console.log(dogruIsimlendirme);
+
+
+
+//Aşağıda bir koşu yarışmasını ilk 10'da bitirenlerin listesi var. Resmi olarak ilk 5'e girenler ödül törenine katılacak. Bunun için; - İlk 5'e giren koşucular kazananlar isimli değişkene atanıyor. - Yapılan testler sonucunda 4. ve 5. olan koşucuların doping yaptığı ortaya çıkıyor ve kazananlar listesinden çıkarılıyorlar. - Yerlerine arkalarından gelen 34 ve 42 numaralı koşucular sıralamaya ekleniyor. - Madalya töreni öncesi yapılan kontrollerde de 1. olan koşucunun kurallara uygun ayakkabı kullanmadığı ortaya çıkıyor ve listeden çıkarılıyor. - Kazananlar listesine sıradaki kişi ekleniyor. - Kazananlar ekranda gösteriliyor(console.log); Yaşanan her bir durumu aşağıda .shift(), .pop() gibi metodlar kullanarak ifade et. 
+const siralama = [11, 15, 23, 54, 74, 34, 42, 89, 101, 3];
+
+const kazananlar = siralama.splice(0,5);
+kazananlar.pop();
+kazananlar.pop();
+kazananlar.push(34,42);
+kazananlar.shift();
+kazananlar.push(89);
+console.log(kazananlar);
+
+
+//Aşağıdaki array'den rastgele 2 eleman seç. - Adı secilenler olan boş bir array tanımla. - Seçilen elemanları bu array'e ekle. - Aynı elemanın tekrar seçilmediğinden emin ol! - Seçilenleri konsola yazdır.
+const takim = ["Mahmut", "İlayda", "Ceren"];
+
+const i1 = Math.floor(Math.random() * takim.length);
+const secilen1 = takim[i1];
+takim.splice(i1,1);
+console.log(secilen1);
+console.log(takim);
+const i2 = Math.floor(Math.random() * takim.length);
+const secilen2 = takim[i2];
+console.log(secilen2);
+const secilenler = [];
+secilenler.push(secilen1,secilen2);
+console.log(secilenler);
+
+
+// Bir okulda beşinci sınıflar genelinde çekiliş yapılacak. - Aşağıda array olarak verilen sınıf listelerini concat ile besinciSiniflar isimli bir değişkende bir araya getir. - Aralarından rastgele seçilen bir kişiyi sansliKisi değişkeninde sakla. - Konsola yazdır.
+const sinif5A = ["Hatice" , "Saliha", "Ece", "Haluk", "Metin"];
+const sinif5B = ["Metin" , "Mustafa", "Berk"];
+const sinif5C = ["Gülsüm" , "Murat", "Erdem", "Tufan", "Ali", "Recep"];
+
+const besinciSiniflar = sinif5A.concat(sinif5B,sinif5C);
+console.log(besinciSiniflar);
+
+const sansliKisi = besinciSiniflar[Math.floor(Math.random() * besinciSiniflar.length)];
+console.log(sansliKisi);
