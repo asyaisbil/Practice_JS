@@ -70,3 +70,21 @@ function slice(start, end) {
     }
     return result;
 }
+
+
+//Bir array'de search yapılıyor. Aranan değerin bulunduğu en büyük indeksi console'a yazdır.
+
+const players = ["Hande", "Saliha", "Ece", "Derya", "Tuba", "Mediha", "Ece", "Tuba"];
+const search = "Derya";
+let i = players.length;
+
+
+while (i>=0) {
+   if (players[i] === search) {
+       console.log(i)
+       break;
+   } else {
+       i--
+   }
+  
+}
