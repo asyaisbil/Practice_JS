@@ -26,3 +26,24 @@ while (i < kelimeler.length) {  // Tüm kelimeleri kontrol et
     i++;
 }
 console.log(enUzunKelime);
+
+
+
+/*2 argüman alan(cumle, karakter) bir fonksiyon yaz. 
+Verilen cümlede aranan karakterin kaç kere tekrar ettiğini geri dönsün.
+- Fonksiyonun adı tekrarSayisi olsun
+- 2 argüman alsın: cumle, karakter
+- tekrar sayısını geri dönsün.
+
+
+Not: Büyük harf küçük harfe eşit olmamalı. "A" != "a"*/
+
+function tekrarSayisi(cumle, karakter) {
+    let tekrar = 0;
+    for (i = 0; i < cumle.length; i++) {
+        if (cumle.charAt(i) === karakter) {
+            tekrar++;
+        }
+    }
+    console.log(tekrar);
+}
