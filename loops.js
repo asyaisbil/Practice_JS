@@ -199,3 +199,59 @@ while(tahminHakki < 4) {
     }
     tahminHakki++;
 }
+
+
+/*
+1'den 10'a kadar sayılar için çarpma tablosunu konsola yazdıran uygulama yaz.
+Aşağıdaki gibi bir çıktıyı bastırsın.
+
+
+1*1=1
+1*2=2
+1*3=3
+...
+10*9=90
+10*10=100
+*/
+
+
+for (i = 1; i < 11; i++) {
+    for (a = 1; a < 11; a++) {
+        let carpim = i * a;
+        console.log(i + "*" + a + "=" + carpim);
+    }
+}
+
+
+/*
+Sürekli tekrarlayan bir döngü yaz. Kullanıcıya "Bir komut giriniz:" diye sorsun. 
+Kullanıcı "EXIT" yazmadığı sürece aynı soruyu tekrar tekrar sorsun. Kullanıcının yazdığı komutları konsola loglasın.
+Dikkat: EXIT'i de loglasın!
+*/
+
+let komut = " ";
+const dogruKomut = "EXIT"
+while (komut !== dogruKomut) {
+    komut = prompt("Bir komut giriniz:");
+    if (komut === dogruKomut) {
+        console.log(komut);
+        break;
+    } else {
+        console.log(komut);
+    }
+}
+
+
+//Sayılardan oluşan bi array'deki maximum ve minimum sayı arasındaki farkı konsola yazdır. 
+
+const nums = [5, 13, 18, 21, 45, 83];
+let maximum = nums[0];
+let minimum = nums[0];
+for (let i = 1; i < nums.length; i++) {
+    if (maximum < nums[i]) {
+        maximum = nums[i];
+    } else if (minimum > nums[i]) {
+        minimum = nums[i];
+    }
+}
+console.log(maximum-minimum);
