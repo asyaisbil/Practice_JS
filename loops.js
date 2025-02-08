@@ -88,3 +88,114 @@ while (i>=0) {
    }
   
 }
+
+
+
+/*Aşağıdaki array'deki sayıların tek veya çift olma durumunu konsola X sayısı çift sayıdır. 
+veya X sayısı tek sayıdır.basan kodu yazınız.*/
+
+const array = [101, 48, 67, 76];
+for (i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+        console.log(`${array[i]} çift sayıdır.`);
+    } else {
+        console.log(`${array[i]} tek sayıdır.`);
+    }
+}
+
+
+/*2 argüman(satir, sutun) alan bir fonksiyon yaz. satir ve sutun değerine göre konsola *'lardan tablo oluştursun.
+- Adı tabloOlustur olsun
+- 2 parametre alsın: satir, sutun
+- aşağıdaki gibi bir çıktıyı konsola bassın
+
+tabloOlustur(3,5);
+* * * * * 
+* * * * * 
+* * * * * 
+
+
+-not: *'lar arasındaki boşluğa dikkat*/
+
+
+// bi satırı yazdıran kısım
+function tabloOlustur(sutun) {
+    let yildiz = [];
+    for (a = 0; a < sutun; a++) {
+        yildiz.push(" *");
+    }
+    console.log(yildiz.join(" "));
+}
+tabloOlustur(5);
+
+/*
+function tabloOlustur(satir,sutun) {
+    let yildiz = [];
+    for (i = 0; i < satir; i++) {
+        for (a = 0; a < sutun; a++) {
+            yildiz.push(" *");
+            console.log(yildiz.join(" "));
+        }
+    }
+}
+tabloOlustur(3,5);
+*
+ *  *
+ *  *  *
+ *  *  *  *
+ *  *  *  *  *
+ *  *  *  *  *  *
+ *  *  *  *  *  *  *
+ *  *  *  *  *  *  *  *
+ *  *  *  *  *  *  *  *  *
+ *  *  *  *  *  *  *  *  *  *
+ *  *  *  *  *  *  *  *  *  *  *
+ *  *  *  *  *  *  *  *  *  *  *  *
+ *  *  *  *  *  *  *  *  *  *  *  *  *
+ *  *  *  *  *  *  *  *  *  *  *  *  *  *
+ *  *  *  *  *  *  *  *  *  *  *  *  *  *  * 
+ */
+
+
+function tabloOlustur(satir,sutun) {
+    let yildiz = [];
+    for (a = 0; a < sutun; a++) {
+        yildiz.push(" *");
+    }
+    for (i = 0; i < satir; i++) {
+        console.log(yildiz.join(" "));
+    }
+}
+tabloOlustur(3,5);
+
+/*
+ *  *  *  *  *
+ *  *  *  *  *
+ *  *  *  *  *
+ */
+ 
+/*
+Bir sayi tahmin oyunu yaz.
+- Oyun başlamadan önce bilgisayar 100 ile 200(ikisi de dahil) arası rastgele bir sayi oluştursun.
+- Kullanicinin 4 tahminHakki olsun.
+- Kullanıcıya "Tahminin nedir?" diye sorsun ve tahmin değişkeninde saklasın.
+- Eğer kullanıcının tahmini doğru ise kullanıcıya bir uyarı(alert) çıkarsın. "Tebrikler. Tahminin doğru..." desin.
+- Eğer tahmini yanlış ise konsola "Kalan tahmin hakkı: 4" gibi bir metin bastırsın. 
+    Aynı metin ile kullanıcıya uyarı çıkarsın. (Kalan tahmin hakkı: 4)
+- Kullanıcının tahmin hakkı bitince veya kullanıcı doğru tahmin edince yazılım sonlansın. */
+
+let sayi = Math.ceil(Math.random() * 100 + 100);
+console.log(sayi);
+let tahminHakki = 0;
+while(tahminHakki < 4) {
+    let tahmin = prompt("Tahminin nedir?");
+    tahmin = Number(tahmin);
+    if (sayi === tahmin) {
+        alert("Tebrikler. Tahminin doğru...");
+        break;
+    } else {
+        console.log(`Kalan tahmin hakkı: ` + (3-tahminHakki));
+        alert(`Kalan tahmin hakkı: ` + (3-tahminHakki));
+    }
+    tahminHakki++;
+}
