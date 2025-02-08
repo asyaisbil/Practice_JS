@@ -47,3 +47,26 @@ function tekrarSayisi(cumle, karakter) {
     }
     console.log(tekrar);
 }
+
+
+
+/*Aşağıdaki fonksiyon parametre olarak aldığı 2 indeks alıyor. 
+Aşağıdaki sayilar dizisinde bu iki indeks arasında kalan elemanları yeni bir array olarak dönüyor. 
+while döngüsü kullanarak aşağıdaki eksik fonksiyonu tamamla. */
+const sayilar = [1,1,2,3,5,8,13,21,34]
+function slice(start, end) {
+    const result = [];
+    return result;
+}
+
+
+const sayilar = [1,1,2,3,5,8,13,21,34]
+function slice(start, end) {
+    const result = []; 
+    while (start <= end) {
+        console.log(sayilar[start]);
+        result.push(sayilar[start]);
+        start++;
+    }
+    return result;
+}
