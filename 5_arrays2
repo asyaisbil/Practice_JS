@@ -256,3 +256,129 @@ const scores = [
 const ortScore = scores.reduce((toplam,sayi) => toplam + sayi.score,0) / scores.length;
 const isimler = scores.filter(sayi => sayi.score < ortScore).map(sayi => sayi.name);
 console.log(isimler);
+
+
+
+
+const words = [ "Melisa", "Workintech", "Emre", "Burak", "Sümeyye", "Fatih"];
+const longestWord = (words) => {
+  const longestLength = 0;
+  const longest = "";
+  for (let i of words) {
+    if (i.length > longestLength) {
+      longest = i;
+    };
+  };
+  return longest;
+}
+
+console.log(longestWord(words));
+
+
+/*
+Bir basamak sayısını argüman olarak alıp o basamak sayısına sahip en büyük sayıyı dönen(örn: 3 basamaklı en büyük sayı 999) fonksiyon yaz ve 5 için çalıştır, sonucu konsola yazdır.
+
+- Fonksiyonun adı getBiggest olsun. Arrow fonksiyon olarak tanımla.
+- Bir sayıyı argüman olarak alsın: digit
+- O basamak sayısına ait en büyük sayıyı sayı veri türünde dönsün.
+
+- İpucu
+biggest isimli boş bir string tanımlayabilirsin.
+while döngüsü ile her digit için biggest'a 9 string'ini ekleyebilirsin.
+biggest'ı sayı veri türünde dönebilirsin.
+*/
+
+/*
+const getBiggest = (digit) => {
+  let biggest = "";
+  for (i = 0; i < digit; i++) {
+    biggest = biggest + "9";
+  }
+  return Number(biggest);
+}
+
+console.log(getBiggest(3));
+*/
+
+/*
+const getBiggest = (digit) => {
+  let biggest = "";
+  let i = 0;
+  while (i < digit) {
+    biggest = biggest + "9";
+    i++;
+  }
+  return Number(biggest);
+}
+
+console.log(getBiggest(5));
+*/
+
+const getBiggest = digit => Number("9".repeat(digit)); 
+console.log(getBiggest(5)); // 99999
+
+
+
+// Kendisine gelen sayılardan oluşan bir listedeki pozitif sayıların toplamını dönen bir fonksiyon yaz. 
+// sayilar arrayi için çalıştır ve sonucu konsola yazdır. 
+// - Fonksiyonun adı sumOfPositives olsun. Arrow fonksiyon olarak tanımlayın. 
+// - Sayılardan oluşan bir listeyi argüman olarak alsın: nums. 
+// - positives isimli bir sabit değişkende pozitif sayıları filtrelesin. 
+// - sum isimli bir sabir değişkende reduce ile sayıları toplasın. 
+// - sonucu geri dönsün. 
+// - sayilar isimli array için fonskiyonu çalıştır ve sonucu konsola yazdır. 
+// -Dikkat: metodlar için sadece tek satır arrow fonksiyon kullanın.
+
+
+// const sayilar = [1,-4,5,6,8,9,-10,12,10];
+
+// const sumOfPositives = nums => {
+//   const positives = nums.reduce((toplam, sayi) => toplam + (sayi > 0 ? sayi : 0),0);
+//   return positives;
+// }
+
+// console.log(sumOfPositives(sayilar));
+
+
+const sayilar = [1,-4,5,6,8,9,-10,12,10];
+
+const sumOfPositives = nums => {
+  const positives = nums.filter(sayi => sayi > 0);
+  const sum = positives.reduce((toplam,sayi) => toplam + sayi,0);
+  return sum;
+}
+
+console.log(sumOfPositives(sayilar));
+
+
+/*
+Tekrar eden harfleri bir string olarak geri dönen fonksiyon yaz. 
+"6 aylık yazılımcı eğitimini başarıyla tamamladım" metni için çalıştır ve sonucunu konsola yazdır.
+
+- Fonksiyonun adı duplicateCharacters olsun.
+- Bir argüman alsın: metin.
+- Tekrar eden harfleri metindeki sırasıyla geri dönsün.
+- "6 aylık yazılımcı eğitimini başarıyla tamamladım" metni için çalıştır ve sonucunu konsola yazdır.
+
+- İpucu: 
+Boş bir string oluştur, adı tekrarEdenler olsun.
+İç içe 2 for döngüsü yaz. 2. döngü ilk döngüden sonraki karakterden başlasın.
+Aynı karakteri(charAt kullan) bulursa tekrarEdenler bu karakteri içeriyor mu diye baksın.
+İçermiyorsa eklesin ve 2. döngüden çıksın.
+*/
+
+const duplicateCharacters = metin => {
+  let tekrarEdenler = "";
+    for (i = 0; i < metin.length; i++) {
+      for (j = i + 1; j < metin.length; j++) {
+        if (metin.charAt(j) === metin.charAt(i)) {
+          if (!tekrarEdenler.includes(metin.charAt(i))) {
+            tekrarEdenler = tekrarEdenler + metin.charAt(i);
+          }
+        }
+      }
+    }
+  return tekrarEdenler;
+}
+
+console.log(duplicateCharacters("6 aylık yazılımcı eğitimini başarıyla tamamladım"));
