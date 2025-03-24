@@ -1,0 +1,122 @@
+
+// 1.
+
+let meyveler = ["Elma","Çilek"] ;
+console.log(meyveler);
+meyveler.push("Muz");
+console.log("push sonrası: ",meyveler);
+meyveler.pop();
+console.log("pop sonrası: ",meyveler);
+
+
+// 2.
+
+let rakamlar = [1,2,3,4,5];
+rakamlar.unshift(0);
+console.log(rakamlar);
+rakamlar.shift();
+console.log(rakamlar);
+console.log(rakamlar.join("-"));
+
+
+// 3.
+
+let renkler = ["Kırmızı","Yeşil","Mavi","Sarı","Turuncu"];
+if (renkler.indexOf("Mavi")!== -1) {
+    let ilkUc = renkler.slice(0,3);
+    console.log("ilk 3 renk",ilkUc);
+} else {
+    console.log("Mavi yok")
+}
+
+
+// 4.
+
+let sayilar = [1,2,3,4,5];
+let carpim = sayilar.map(num => num * 3);
+console.log(carpim) ;
+
+
+// 5.
+
+let numDizi = [4,5,7,3,2];
+let toplam = numDizi.reduce((acc,num) => acc + num, 0);
+
+if(toplam > 20) {
+    console.log("Büyük toplam",toplam);
+} else {
+    console.log("Küçük toplam",toplam);
+}
+
+
+// 6.
+
+let numDizi = [4,5,7,3,2,8,6];
+let ciftSayi = numDizi.filter(num => num % 2 === 0);
+console.log(ciftSayi);
+let kare = ciftSayi.map(num => num ** 2);
+console.log(kare);
+let sonuc = numDizi.filter(num => num % 2 === 0).map(num => num ** 2);
+console.log(sonuc);
+
+
+// 7.
+
+let sinif1 = ["Ahmet","Ayşe"];
+let sinif2 = ["Mehmet","Öğrenci"];
+
+let tumOgrenciler =  [...sinif1,...sinif2];
+console.log(tumOgrenciler);
+
+if(tumOgrenciler.indexOf("Öğrenci")) {
+    tumOgrenciler.push("Başarılı");
+}
+
+console.log("son durum : ", tumOgrenciler);
+
+
+// 8.
+
+function gecikmeliIslem(dizi, callback) {
+
+    let kopya = [...dizi];
+    if(dizi.some(num => num < 10)) {
+        kopya.push(5);
+    }
+
+    setTimeout(() => {
+        callback(kopya);
+    },1000);
+
+}
+
+let numArr = [12,7,15];
+
+gecikmeliIslem(numArr, (sonuc) => {
+    console.log("Sonuç :", sonuc);
+});
+
+
+// 9.
+
+function cumleOlustur(kelimeler) {
+
+    let cumle = kelimeler.slice(0,2).join(" ");
+
+    if(cumle.startsWith("Merhaba")) {
+        cumle += " Dünya";
+    }
+
+    return cumle;
+}
+
+let kelimeler = ["Merhaba","arkadaşlar","nasılsınız?"];
+
+console.log(cumleOlustur(kelimeler));
+
+
+
+
+
+
+
