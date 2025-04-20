@@ -347,3 +347,37 @@ document.addEventListener("keydown", function (event) {
     }
   });
   
+
+
+// 20
+
+/*
+Aşağıdaki form kodunu tamamla: - email ve password alanlarının değeri değiştiğinde event.target.value kullanarak 
+değerleri alıp konsola yazdır. - Form submit olduğunda Form submitted! yazısını konsola yazdır. -İpucu: change
+
+
+document.getElementById("email");
+
+
+document.getElementById("password");
+
+
+document.getElementById("myForm");
+*/
+
+
+const email = document.getElementById("email");
+email.addEventListener("change", (event) => {
+    console.log(event.target.value);
+})
+
+const password = document.getElementById("password");
+password.addEventListener("change", (event) => {
+    console.log(event.target.value);
+})
+
+const myForm = document.getElementById("myForm");
+myForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log("Form submitted!");
+})
