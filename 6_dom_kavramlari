@@ -167,3 +167,49 @@ function odd() {
 }
 
 odd(); // Fonksiyonu çalıştır
+
+
+
+// 15
+
+/*
+Adı updateLinks olan ve header içindeki navın altındaki link elemanlarının yazılarını, class ve href özelliklerini 
+for döngüsü kullanarak değiştiren bir fonksiyon yazın. 
+Bu fonksiyonun parametreleri sırasıyla şunlar olmalı:
+
+texts: yazılacak metinler, bir array olarak
+classes: eklenecek class'ların listesi, bir array olarak
+links: linkler, de bir array olarak
+*/
+
+
+
+function updateLinks(texts, classes, links) {
+  for(let i = 0; i < linkElements.length; i++) {
+    const linkElements = document.querySelectorAll("header nav a");
+    linkElements[i].textContent = texts;
+    linkElements[i].classList.add(classes);
+    linkElements[i].href = links;
+  }
+}
+
+
+// 16
+
+/*
+getElementsByTagName kullanarak tüm paragrafları bulup allText adında bir değişkene ata.
+İlk olarak allText değişkeninin boş olup olmadığını kontrol et, eğer boşsa konsola "Can't found" yazdır.
+Boş değilse tüm elemanları bir for döngüsü ile gez ve paragrafların içinde 
+yer alan tüm "first" stringlerini "first of all" olarak değiştir.
+*/
+
+
+const allText = document.getElementsByTagName("p");
+
+if (allText.length === 0) {
+  console.log("Can't found");
+} else {
+  for(let i = 0; i < allText.length; i++) {
+    allText[i].textContent = allText[i].textContent.replaceAll("first","first of all")
+  }
+}
