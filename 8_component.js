@@ -425,7 +425,7 @@ function Card(item) {
 
     const a = document.createElement("a");
     a.href = item.navigationURL;
-    a.text = "Devamı..."
+    a.textContent = "Devamı..."
 
     card.appendChild(img);
     card.appendChild(header);
