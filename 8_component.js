@@ -332,3 +332,114 @@ function Liste(items) {
 }
 
 document.getElementById("app").appendChild(Liste(["Item 1", "Item 2", "Item 3"]));
+
+
+/*
+Sample buttons altında bulunan 3 butonun aynısını dinamik olarak aşağıdaki buttons array'ini kullanarak oluştur 
+ve generated buttons altına ekle. Örnek butonlara index.html dosyasından bakabilirsin. 
+1- IconButton isimli bir fonksiyon oluştur. 
+- Adı data olan bir objeyi parametre olarak alsın.. 
+- İçinde bir button element'i oluştursun ve button değişkeninde saklasın. 
+- classList ile tek satırda index.html'deki örnek gibi 2 class'ı eklesin. 
+- i element'i oluştur ve icon isimli değişkende sakla. 
+- data'daki iconClass özelliğini ata. 
+- icon'u button'a ekle. 
+- Bir textNode oluştur(araştırabilirsin) ve text değişkeninde sakla. 
+- text'i button'a ekle. 
+- Oluşturduğun butonu geri dön. 
+2- icons-buttons id'li element'i container isimli değişkende sakla. 
+3- buttons array'inde forEach yap ve IconButon ile oluşturduğun component'leri ekle.*/
+
+const buttons = [
+        { btnText: "Aç", btnColor: "blue", iconClass: "fa-folder-open" },
+        { btnText: "Düzenle", btnColor: "orange", iconClass: "fa-pen" },
+        { btnText: "Sil", btnColor: "red", iconClass: "fa-trash" },
+      ];
+
+function IconButon(data) {
+    const button = document.createElement("button");
+    button.classList.add(`btn`, `btn-${data.btnColor}`);
+
+    const icon = document.createElement("i");
+    icon.classList.add(data.iconClass);
+    button.appendChild(icon);
+
+    const text = document.createTextNode(data.btnText);
+    button.appendChild(text);
+
+    return button;
+}
+
+const container = document.getElementById("icons-buttons");
+
+buttons.forEach((item) => {
+    container.appendChild(IconButon(item));
+})
+
+
+
+/*
+Aşağıdaki component'i oluşturan Card isimli fonksiyon yaz. cardDataList array'inde forEach yaparak oluşturduğun 
+component'leri .container element'ine ekle. Component:
+<div class="card">
+    <img src="{imgURL}" />
+    <h2>{header}</h2>
+    <hr />
+    <div class="card-content">
+    <p>{paragraph}</p>
+    <a href="{navigationURL}">Devamı...</a>
+    </div>
+</div>*/
+
+/*1- Card isimli bir fonksiyon oluştur. 
+- Adı item olan bir objeyi parametre olarak alsın. 
+- İçinde component yapısına uygun şekilde element'leri oluştur ve her bir element'i değişkende sakla. 
+- Değişkenleri isimlendirirken tag'leri aynen kullan. Örn: const div = document.createElement("div); 
+- Aynı tag'den birden çok var ise 2.yi tag2 olarak oluştur. (örn: div, div2) 
+- Her bir element'i önce oluştur. Gerekli özelliklerini ekle. Sonra parent'ına ekle. 
+- Oluşturduğun component'i geri dön. 
+2- containerclass'ına sahip element'i query metodu ile al ve container isimli değişkende sakla. 
+3- cardDataList array'inde forEach yap: 
+- item parametresi ile aldığın her bir objeyi Card fonksiyonu yardımı ile component'e dönüştür ve component isimli değişkende sakla. 
+- Her bir component'i container'a ekle.*/
+
+import "./styles.css";
+import {cardDataList} from "./cardData.js"
+function Card(item) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const img = document.createElement("img");
+    img.src = item.imgURL;
+
+    const header = document.createElement("h2");
+    header.textContent = item.header;
+
+    const hr = document.createElement("hr");
+
+    const content = document.createElement("div");
+    content.classList.add("card-content");
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = item.paragraph;
+
+    const a = document.createElement("a");
+    a.href = item.navigationURL;
+    a.text = "Devamı..."
+
+    card.appendChild(img);
+    card.appendChild(header);
+    card.appendChild(hr);
+    card.appendChild(content);
+    content.appendChild(paragraph);
+    content.appendChild(a);
+
+    return card;
+}
+
+const container = document.querySelector(".container");
+
+cardDataList.forEach(item => {
+    const component = Card(item);
+    container.appendChild(component);
+})
